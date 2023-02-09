@@ -13,8 +13,11 @@ struct testApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            // TODO: Esto hay que pasarlo por injection
+            let vc = HomeViewModel(useCase: HomeUseCase())
+            HomeCoordinator(state: vc, content: {
+                HomeViewController(viewModel: vc)
+            })
         }
     }
 }

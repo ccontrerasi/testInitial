@@ -27,7 +27,7 @@ struct HomeViewController: View {
     @ViewBuilder private func content() -> some View {
         ZStack {
             switch viewModel.state {
-            case .idle, .loading: Text("Loading....")
+            case .idle, .loading: ProgressView()
             case .failed(_): Text("Failed....")
             case .result(let result): menuList(result)
             }
@@ -54,9 +54,20 @@ struct HomeViewController: View {
         var body: some View {
             ZStack(alignment: .center) {
                 VStack(alignment: .trailing) {
-                    Text("\(item.id)").frame(maxWidth: .infinity).padding().background(Color.red)
+                    Text("\(item.id)").frame(maxWidth: .infinity).padding().background(Color.red).lineLimit(1)
                     if let show = item.show.first {
-                        Text("\(show.title) - \(show.year)").frame(maxWidth: .infinity).padding()
+                        
+                        HStack {
+                            if let url = URL(string: show.moviePictures.photo) {
+                                AsyncImage(
+                                    url: url,
+                                    placeholder: { ProgressView() },
+                                    image: { Image(uiImage: $0).resizable() }
+                                ).frame(width: 50, height: 50).scaledToFit().padding()
+                            }
+                            
+                            Text("\(show.title) - \(show.year)").frame(maxWidth: .infinity).padding()
+                        }
                     }
                 }
             }

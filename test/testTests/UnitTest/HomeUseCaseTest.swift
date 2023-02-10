@@ -8,14 +8,10 @@
 import XCTest
 import Combine
 import Rswift
+@testable import test
 
 final class HomeUseCaseTest: XCTestCase {
 
-    private var useCase: HomeUseCase! {
-        get {
-            HomeUseCase()
-        }
-    }
     private var cancellables: [AnyCancellable] = []
     
     override class func setUp() {

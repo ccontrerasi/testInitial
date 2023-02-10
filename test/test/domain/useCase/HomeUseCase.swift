@@ -1,7 +1,6 @@
 //
 //  
 //  HomeUseCase.swift
-//  test
 //
 //  Created by Cristian Contreras on 9/2/23.
 //

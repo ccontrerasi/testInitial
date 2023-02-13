@@ -58,7 +58,7 @@ struct HomeViewController: View {
                     if let show = item.show.first {
                         
                         HStack {
-                            if let url = URL(string: show.moviePictures.photo) {
+                            if let url = URL(string: show.moviePictures.pictureUrl) {
                                 AsyncImage(
                                     url: url,
                                     placeholder: { ProgressView() },

@@ -41,6 +41,11 @@ struct Picture: Codable {
     let photo: String
     let poster: String?
     let background: String
+    var pictureUrl: String {
+        get {
+            url_images + photo
+        }
+    }
     
     init(dto: MoviePictures) {
         photo = dto.photo

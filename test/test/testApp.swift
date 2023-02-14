@@ -9,15 +9,13 @@ import SwiftUI
 
 @main
 struct testApp: App {
-    let persistenceController = PersistenceController.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
             // TODO: Esto hay que pasarlo por injection
-            let vc = HomeViewModel(useCase: HomeUseCase())
-            HomeCoordinator(state: vc, content: {
-                HomeViewController(viewModel: vc)
-            })
+            let vc = HomeViewModel(useCase: HomeUseCase(homeRepository: HomeRepository()))
+            HomeViewController(viewModel: vc)
         }
     }
 }

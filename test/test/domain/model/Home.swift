@@ -47,7 +47,7 @@ struct Picture: Codable {
         }
     }
     
-    init(dto: MoviePictures) {
+    init(dto: MoviePicturesDTO) {
         photo = dto.photo
         poster = dto.poster
         background = dto.background

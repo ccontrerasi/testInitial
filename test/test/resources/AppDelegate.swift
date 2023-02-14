@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var persistentContainer: NSPersistentContainer = {
         // The persistent container for the application
         
-        let container = NSPersistentContainer(name: "test")
+        let container = NSPersistentContainer(name: "SwiftCoreDataHelper")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 

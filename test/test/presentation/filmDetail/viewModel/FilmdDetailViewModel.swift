@@ -15,7 +15,7 @@ protocol FilmdDetailViewModelProtocol: ObservableObject {
 
 final class FilmdDetailViewModel: ObservableObject, FilmdDetailViewModelProtocol, IFilmdDetailFlowStateProtocol {
     // MARK: - Properties
-    @Published private(set) var state: LoadableState<FilmdDetail> = .idle
+    @Published private(set) var state: LoadableState<Show> = .idle
     @Published var activeLink: FilmdDetailNavigationLink?
     private let useCase: FilmdDetailUseCase
         

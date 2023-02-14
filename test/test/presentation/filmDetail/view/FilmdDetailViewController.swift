@@ -9,7 +9,7 @@
 //
 import SwiftUI
 
-final class FilmdDetailViewController: View {
+struct FilmdDetailViewController: View {
     @StateObject private var viewModel: FilmdDetailViewModel
 
     // MARK: - Init
@@ -29,8 +29,14 @@ final class FilmdDetailViewController: View {
             switch viewModel.state {
                 case .idle, .loading: Text("Loading....")
                 case .failed(_): Text("Failed....")
-                case .result(_): Text("Result")
+                case .result(_): Text("Failed....")
             }
+        }
+    }
+    
+    private func mainView() -> some View {
+        ZStack {
+            
         }
     }
 }

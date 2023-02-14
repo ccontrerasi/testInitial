@@ -10,11 +10,7 @@ import CoreData
 
 struct CoreDataHelper {
     private static let context: NSManagedObjectContext = {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError()
-        }
-        
-        let persistentContainer = appDelegate.persistentContainer
+        let persistentContainer = AppDelegate.instance.persistentContainer
         let context = persistentContainer.viewContext
         
         return context
@@ -46,7 +42,9 @@ struct CoreDataHelper {
         showDB.score = show.score
         showDB.seasonId = show.seasonId
         showDB.serieId = show.serieId
-        showDB.startBookmark = Int64(show.startBookmark ?? 0)
+        if let startBookmark = show.startBookmark {
+            showDB.startBookmark = Int64(startBookmark)
+        }
         showDB.synopsis = show.synopsis
         showDB.synopsisEpisode = show.synopsisEpisode
         showDB.synopsisLong = show.synopsisLong

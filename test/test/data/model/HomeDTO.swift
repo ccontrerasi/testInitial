@@ -16,22 +16,21 @@ struct HomeDTO : Codable {
 // MARK: - Show
 struct ShowDTO: Codable {
     let eventId: String
-    let kind: Kind
+    let kind: KindDTO
     let programId: String
     let actors: [String]
-    let ageCode: AgeCode
+    let ageCode: AgeCodeDTO
     let beginTime: String
     let catchup: Bool
-    let category: Category
     let channel, channelName: String
     let country, directors: [String]
     let endTime, episodeTitle: String
-    let language: Language
+    let language: LanguageDTO
     let length: Int
-    let moviePictures: MoviePictures
+    let moviePictures: MoviePicturesDTO
     let seasonId, serieId, synopsis, synopsisEpisode: String
     let synopsisLong: String
-    let tags: [Tag]
+    let tags: [TagDTO]
     let title: String
     let type: Int
     let writers: [String]
@@ -44,7 +43,7 @@ struct ShowDTO: Codable {
     let channelPremium: Bool?
 }
 
-enum AgeCode: String, Codable {
+enum AgeCodeDTO: String, Codable {
     case sc = "SC"
     case the12 = "+12"
     case the13 = "+13"
@@ -54,15 +53,11 @@ enum AgeCode: String, Codable {
     case tp = "TP"
 }
 
-enum Category: String, Codable {
-    case the5A3A32E5Cd93B24C39Bdf19D = "5a3a32e5cd93b24c39bdf19d"
-}
-
-enum Kind: String, Codable {
+enum KindDTO: String, Codable {
     case mediaProduction = "MediaProduction"
 }
 
-enum Language: String, Codable {
+enum LanguageDTO: String, Codable {
     case cat = "CAT"
     case eus = "EUS"
     case glg = "GLG"
@@ -71,13 +66,13 @@ enum Language: String, Codable {
 }
 
 // MARK: - MoviePictures
-struct MoviePictures: Codable {
+struct MoviePicturesDTO: Codable {
     let photo: String
     let poster: String?
     let background: String
 }
 
-enum Tag: String, Codable {
+enum TagDTO: String, Codable {
     case acción = "Acción"
     case adultos = "Adultos"
     case animación = "Animación"

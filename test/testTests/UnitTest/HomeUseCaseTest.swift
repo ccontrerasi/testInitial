@@ -1,15 +1,45 @@
 //
-//  testTests.swift
+//  HomeUseCaseTest.swift
 //  testTests
 //
 //  Created by Cristian Contreras on 9/2/23.
 //
 
 import XCTest
+import Combine
+import Rswift
 @testable import test
 
-final class testTests: XCTestCase {
+final class HomeUseCaseTest: XCTestCase {
 
+    private var cancellables: [AnyCancellable] = []
+    
+    override class func setUp() {
+        
+    }
+    
+    func test_parsing_JSON() {
+        
+    }
+    
+    func test_searchHomeSucceeds() {
+        // Given
+        var result: LoadableState<[Home]>!
+        let expectation = self.expectation(description: "movies")
+        let uc = HomeUseCaseMockup()
+        uc.execute().sink { state in
+            result = state
+            expectation.fulfill()
+        }.store(in: &cancellables)
+
+        // Then
+        self.waitForExpectations(timeout: 1.0, handler: nil)
+        guard case .result(_) = result! else {
+            XCTFail()
+            return
+        }
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

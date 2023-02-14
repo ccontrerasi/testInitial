@@ -113,6 +113,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `last7d.cine.json`.
+    static let last7dCineJson = Rswift.FileResource(bundle: R.hostingBundle, name: "last7d.cine", pathExtension: "json")
+
+    /// `bundle.url(forResource: "last7d.cine", withExtension: "json")`
+    static func last7dCineJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.last7dCineJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       // There are no resources to validate

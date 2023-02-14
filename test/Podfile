@@ -13,10 +13,12 @@ target 'test' do
   target 'testTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'R.swift', '~>6.1.0'
   end
 
   target 'testUITests' do
     # Pods for testing
+    pod 'R.swift', '~>6.1.0'
   end
 
 end

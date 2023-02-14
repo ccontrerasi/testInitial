@@ -53,7 +53,7 @@ struct CoreDataHelper {
         showDB.type = Int64(show.type)
         showDB.url = show.url
         showDB.writers = show.writers
-        showDB.year = Int64(show.year)        
+        showDB.year = Int64(show.year)
         
         do {
             try context.save()
@@ -61,5 +61,55 @@ struct CoreDataHelper {
             return false
         }
         return true
+    }
+    
+    
+    static func getShow(showId: String) -> ShowDB? {
+        do {
+            let fetchRequest = ShowDB.fetchRequest()
+
+            fetchRequest.predicate = NSPredicate(
+                format: "id LIKE %@", showId
+            )
+            
+            let results = try context.fetch(fetchRequest)
+            
+            return results.first { $0.id == showId }
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    static func saveImageShow(image: MoviePicturesDTO) -> Bool {
+        guard let imageDB = NSEntityDescription.insertNewObject(forEntityName: "MoviePicturesDB", into: context) as? MoviePicturesDB else {
+            return false
+        }
+        
+        imageDB.photo = image.photo
+        imageDB.background = image.background
+        imageDB.poster = image.poster
+        
+        do {
+            try context.save()
+        } catch {
+            return false
+        }
+        return true
+    }
+    
+    static func getImageShow(show: ShowDB) -> [MoviePicturesDB] {
+        do {
+            let fetchRequest = MoviePicturesDB.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "showDB = %@", show)
+            
+            return try context.fetch(fetchRequest)
+            
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+            
+            return []
+        }
     }
 }

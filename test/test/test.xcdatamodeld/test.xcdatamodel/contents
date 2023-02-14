@@ -6,37 +6,37 @@
         <attribute name="poster" optional="YES" attributeType="String"/>
     </entity>
     <entity name="ShowDB" representedClassName="ShowDB" syncable="YES" codeGenerationType="class">
-        <attribute name="actors" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
-        <attribute name="ageCode" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
-        <attribute name="beginTime" optional="YES" attributeType="String"/>
-        <attribute name="catchup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="channel" optional="YES" attributeType="String"/>
-        <attribute name="channelName" optional="YES" attributeType="String"/>
-        <attribute name="channelPremium" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="country" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
-        <attribute name="directors" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
-        <attribute name="endTime" optional="YES" attributeType="String"/>
-        <attribute name="episodeTitle" optional="YES" attributeType="String"/>
-        <attribute name="eventId" optional="YES" attributeType="String"/>
-        <attribute name="fastVodEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="kind" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
-        <attribute name="language" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
-        <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" customClassName="Int"/>
-        <attribute name="programId" optional="YES" attributeType="String"/>
-        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="seasonId" optional="YES" attributeType="String"/>
-        <attribute name="serieId" optional="YES" attributeType="String"/>
-        <attribute name="startBookmark" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" customClassName="Int"/>
-        <attribute name="synopsis" optional="YES" attributeType="String"/>
-        <attribute name="synopsisEpisode" optional="YES" attributeType="String"/>
-        <attribute name="synopsisLong" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="url" optional="YES" attributeType="String"/>
-        <attribute name="writers" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="actors" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
+        <attribute name="ageCode" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
+        <attribute name="beginTime" attributeType="String"/>
+        <attribute name="catchup" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="channel" attributeType="String"/>
+        <attribute name="channelName" attributeType="String"/>
+        <attribute name="channelPremium" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="country" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
+        <attribute name="directors" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
+        <attribute name="endTime" attributeType="String"/>
+        <attribute name="episodeTitle" attributeType="String"/>
+        <attribute name="eventId" attributeType="String"/>
+        <attribute name="fastVodEnabled" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="kind" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
+        <attribute name="language" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
+        <attribute name="length" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" customClassName="Int"/>
+        <attribute name="programId" attributeType="String"/>
+        <attribute name="score" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="seasonId" attributeType="String"/>
+        <attribute name="serieId" attributeType="String"/>
+        <attribute name="startBookmark" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" customClassName="Int"/>
+        <attribute name="synopsis" attributeType="String"/>
+        <attribute name="synopsisEpisode" attributeType="String"/>
+        <attribute name="synopsisLong" attributeType="String"/>
+        <attribute name="tags" attributeType="Transformable" valueTransformerName="" customClassName="[String]"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="type" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="url" attributeType="String"/>
+        <attribute name="writers" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="year" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoviePicturesDB"/>
     </entity>
 </model>

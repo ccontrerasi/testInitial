@@ -26,24 +26,29 @@ struct Show {
     let id: String
     let year: Int
     let title: String
-    let moviePictures: Picture
+    let moviePictures: Picture?
     
     init(dto: ShowDTO) {
         eventId = dto.eventId
         id = dto.id
         year = dto.year
         title = dto.title
-        moviePictures = Picture(dto: dto.moviePictures)
+        if let pic = dto.moviePictures {
+            moviePictures = Picture(dto: pic)
+        } else {
+            moviePictures = nil
+        }
     }
 }
 
 struct Picture: Codable {
-    let photo: String
+    let photo: String?
     let poster: String?
-    let background: String
-    var pictureUrl: String {
+    let background: String?
+    var pictureUrl: String? {
         get {
-            url_images + photo
+            guard let photo = self.photo else { return nil }
+            return url_images + photo
         }
     }
     

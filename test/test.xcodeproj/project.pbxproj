@@ -28,6 +28,7 @@
 		719A00AA2995AA4A004226E6 /* HomeUseCaseMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A00A92995AA4A004226E6 /* HomeUseCaseMockup.swift */; };
 		719A00AB2995AAC2004226E6 /* HomeUseCaseMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A00A92995AA4A004226E6 /* HomeUseCaseMockup.swift */; };
 		719A00B129962563004226E6 /* test.cine.json in Resources */ = {isa = PBXBuildFile; fileRef = 719A00B029962562004226E6 /* test.cine.json */; };
+		719AA8B4299C35D100421E2E /* FilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719AA8B3299C35D100421E2E /* FilmRepository.swift */; };
 		71B7BBE6299AE3C000742266 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7BBE5299AE3C000742266 /* Constants.swift */; };
 		71B7BBF9299B756600742266 /* FilmdDetailNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7BBF3299B756600742266 /* FilmdDetailNavigationLink.swift */; };
 		71B7BBFA299B756600742266 /* FilmdDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7BBF4299B756600742266 /* FilmdDetailCoordinator.swift */; };
@@ -93,6 +94,7 @@
 		719A00A22995A6DF004226E6 /* HomeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseTest.swift; sourceTree = "<group>"; };
 		719A00A92995AA4A004226E6 /* HomeUseCaseMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseMockup.swift; sourceTree = "<group>"; };
 		719A00B029962562004226E6 /* test.cine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.cine.json; sourceTree = "<group>"; };
+		719AA8B3299C35D100421E2E /* FilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmRepository.swift; path = test/data/FilmRepository.swift; sourceTree = SOURCE_ROOT; };
 		71B7BBE5299AE3C000742266 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71B7BBF3299B756600742266 /* FilmdDetailNavigationLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmdDetailNavigationLink.swift; sourceTree = "<group>"; };
 		71B7BBF4299B756600742266 /* FilmdDetailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmdDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		71DD86C7299512100040AA92 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				719AA8B3299C35D100421E2E /* FilmRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -807,6 +810,7 @@
 				71DD86E62995148A0040AA92 /* HomeCoordinator.swift in Sources */,
 				719A007229951816004226E6 /* Publisher+Extension.swift in Sources */,
 				71B7BC00299B75AA00742266 /* FilmdDetailUseCase.swift in Sources */,
+				719AA8B4299C35D100421E2E /* FilmRepository.swift in Sources */,
 				719A00AA2995AA4A004226E6 /* HomeUseCaseMockup.swift in Sources */,
 				71B7BBFA299B756600742266 /* FilmdDetailCoordinator.swift in Sources */,
 				711786A4299B909500061815 /* CoreDataHelper.swift in Sources */,

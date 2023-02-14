@@ -79,6 +79,6 @@ struct HomeViewController_Previews: PreviewProvider {
     static var previews: some View {
         HomeViewController(
             viewModel: HomeViewModel(
-                useCase: HomeUseCase()))
+                useCase: HomeUseCase(homeRepository: HomeRepository())))
     }
 }

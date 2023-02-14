@@ -10,11 +10,8 @@ import CoreData
 
 struct CoreDataHelper {
     private static let context: NSManagedObjectContext = {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError()
-        }
         
-        let persistentContainer = appDelegate.persistentContainer
+        let persistentContainer = AppDelegate.instance.persistentContainer
         let context = persistentContainer.viewContext
         
         return context

@@ -15,23 +15,17 @@ protocol IHomeUseCase {
 
 final class HomeUseCase: IHomeUseCase {
     
+    let homeRepository: IHomeRepository
+    
+    init(homeRepository: IHomeRepository) {
+        self.homeRepository = homeRepository
+    }
+    
     // MARK: init
     func execute(name: String? = nil) -> AnyPublisher<LoadableState<[Home]>, Never> {
-        guard let path = R.file.last7dCineJson.path() else { return AnyPublisher(Just(.failed(RequestError.commonError))).eraseToAnyPublisher() }
-        
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let decoder = JSONDecoder()
-            let homeDTO = try! decoder.decode([HomeDTO].self, from: data)
-            
-            return Result<[Home], Never>.Publisher.init(homeDTO.compactMap({ homeDTO in
-                Home(dto: homeDTO)
-            }))
-                .convertToLoadedState()
-                .eraseToAnyPublisher()
-            
-        } catch {
-            return AnyPublisher(Just(.failed(RequestError.commonError))).eraseToAnyPublisher()
-        }
+        return homeRepository.fetchHomesInfo().compactMap {
+            $0.map { homeDto in
+                Home(dto: homeDto)
+            } }.convertToLoadedState().eraseToAnyPublisher()
     }
 }

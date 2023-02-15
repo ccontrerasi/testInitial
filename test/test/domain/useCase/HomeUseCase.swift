@@ -14,6 +14,7 @@ protocol IHomeUseCase {
 }
 
 final class HomeUseCase: IHomeUseCase {
+    
     let homeRepository: IHomeRepository
     
     init(homeRepository: IHomeRepository) {

@@ -15,7 +15,9 @@ struct testApp: App {
         WindowGroup {
             // TODO: Esto hay que pasarlo por injection
             let vc = HomeViewModel(useCase: HomeUseCase(homeRepository: HomeRepository()))
-            HomeViewController(viewModel: vc)
+            HomeCoordinator(state: vc, content: {
+                HomeViewController(viewModel: vc)
+            })
         }
     }
 }

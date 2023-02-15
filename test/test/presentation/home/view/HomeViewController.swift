@@ -77,7 +77,6 @@ struct HomeViewController: View {
 
 struct HomeViewController_Previews: PreviewProvider {
     static var previews: some View {
-        // TODO: pasar por inyección
         HomeViewController(
             viewModel: HomeViewModel(
                 useCase: HomeUseCase(homeRepository: HomeRepository())))

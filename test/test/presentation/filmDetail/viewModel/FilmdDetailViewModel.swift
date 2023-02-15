@@ -18,18 +18,18 @@ final class FilmdDetailViewModel: ObservableObject, FilmdDetailViewModelProtocol
     @Published private(set) var state: LoadableState<Show> = .idle
     @Published var activeLink: FilmdDetailNavigationLink?
     private let useCase: FilmdDetailUseCase
+    private let idFilm: String
         
-    init(useCase: FilmdDetailUseCase) {
+    init(useCase: FilmdDetailUseCase, idFilm: String) {
         self.useCase = useCase
+        self.idFilm = idFilm
     }
     
     // MARK: - Public
-    /*func exampleInvocation() {
+    func loadInfo() {
         state = .loading
-        
         useCase
-            .execute()
-            .delay(for: 1.5, scheduler: RunLoop.main)
+            .execute(id: idFilm)
             .assign(to: &$state)
-    }*/
+    }
 }

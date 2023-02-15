@@ -34,15 +34,21 @@ struct HomeCoordinator<State: IHomeFlowStateProtocol, Content: View>: View {
     }
     
     @ViewBuilder private var navigationLinks: some View {
-        NavigationLink(tag: .goToPage(), selection: activeLink, destination: goToPage) { EmptyView() }
+        NavigationLink(tag: .goToDetail(), selection: activeLink, destination: goToDetail) { EmptyView() }
     }
     
-    private func goToPage() -> some View {
-        var id: Int?
-        if case let .goToPage(param) = state.activeLink {
+    private func goToDetail() -> some View {
+        var id: String?
+        if case let .goToDetail(param) = state.activeLink {
             id = param
         }
-        // TODO: CREATE THE NEW COORDINATOR
-        return EmptyView()
+        
+        if let id = id {
+            let rp = HomeRepository()
+            let vc = FilmdDetailViewModel(useCase: FilmdDetailUseCase(repository: rp), idFilm: id)
+            return AnyView(FilmdDetailViewController(viewModel: vc))
+        }
+        
+        return AnyView(EmptyView())
     }
 }

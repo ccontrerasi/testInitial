@@ -17,9 +17,9 @@ struct CoreDataHelper {
         return context
     }()
     
-    static func saveShow(show: ShowDTO) -> Bool {
+    static func saveShow(show: ShowDTO) -> ShowDB? {
         guard let showDB = NSEntityDescription.insertNewObject(forEntityName: "ShowDB", into: context) as? ShowDB else {
-            return false
+            return nil
         }
         
         showDB.actors = show.actors
@@ -57,9 +57,9 @@ struct CoreDataHelper {
         do {
             try context.save()
         } catch {
-            return false
+            return nil
         }
-        return true
+        return showDB
     }
     
     
@@ -81,11 +81,11 @@ struct CoreDataHelper {
         }
     }
     
-    static func saveImageShow(image: MoviePicturesDTO) -> Bool {
+    static func saveImageShow(image: MoviePicturesDTO, show: ShowDB?) -> Bool {
         guard let imageDB = NSEntityDescription.insertNewObject(forEntityName: "MoviePicturesDB", into: context) as? MoviePicturesDB else {
             return false
         }
-        
+        imageDB.showDB = show
         imageDB.photo = image.photo
         imageDB.background = image.background
         imageDB.poster = image.poster

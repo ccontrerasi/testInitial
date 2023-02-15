@@ -11,6 +11,7 @@ import Combine
 
 protocol IHomeRepository {
     func fetchHomesInfo() -> AnyPublisher<[HomeDTO], Error>
+    func fecthHomeInfo(id: String) -> AnyPublisher<ShowDTO, Error>
 }
 
 class HomeRepository: IHomeRepository {
@@ -33,5 +34,9 @@ class HomeRepository: IHomeRepository {
         } catch {
             return Fail(error: NSError(domain: "Missing Parsing json file", code: -10001, userInfo: nil)).eraseToAnyPublisher()
         }
+    }
+    
+    func fecthHomeInfo(id: String) -> AnyPublisher<ShowDTO, Error> {
+        CoreDataHelper.saveShow(show: <#T##ShowDTO#>)
     }
 }

@@ -10,13 +10,19 @@ import Foundation
 import Combine
 
 protocol IFilmdDetailUseCase {
-    func execute(name: String?) -> AnyPublisher<LoadableState<Show>, Never>
+    func execute(id: String) -> AnyPublisher<LoadableState<Show>, Never>
 }
 
 class FilmdDetailUseCase: IFilmdDetailUseCase {
     
+    var repository: IHomeRepository
+    
+    init(repository: IHomeRepository) {
+        self.repository = repository
+    }
+    
     // MARK: init
-    func execute(name: String? = nil) -> AnyPublisher<LoadableState<Show>, Never> {
+    func execute(id: String) -> AnyPublisher<LoadableState<Show>, Never> {
         return AnyPublisher(Just(.failed(RequestError.commonError))).eraseToAnyPublisher()
     }
 }

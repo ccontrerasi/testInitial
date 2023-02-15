@@ -45,6 +45,7 @@ struct FilmdDetailViewController_Previews: PreviewProvider {
     static var previews: some View {
         FilmdDetailViewController(
                             viewModel: FilmdDetailViewModel(
-                                useCase: FilmdDetailUseCase()))
+                                useCase: FilmdDetailUseCase(repository: HomeRepository()),
+                                idFilm: ""))
     }
 }

@@ -24,13 +24,10 @@ struct FilmdDetailCoordinator<State: IFilmdDetailFlowStateProtocol, Content: Vie
     }
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                content()
-                navigationLinks
-            }
+        ZStack {
+            content()
+            navigationLinks
         }
-        .navigationViewStyle(.stack)
     }
     
     @ViewBuilder private var navigationLinks: some View {

@@ -25,9 +25,9 @@ class HomeRepository: IHomeRepository {
             
             homeDTO.forEach { homeDto in
                 homeDto.shows.forEach {
-                    let _ = CoreDataHelper.saveShow(show: $0)
+                    let showDB = CoreDataHelper.saveShow(show: $0)
                     if let picture = $0.moviePictures {
-                        let _ = CoreDataHelper.saveImageShow(image: picture)
+                        let _ = CoreDataHelper.saveImageShow(image: picture, show: showDB)
                     }
                 }
                 

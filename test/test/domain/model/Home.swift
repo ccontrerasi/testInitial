@@ -27,6 +27,7 @@ struct Show {
     let year: Int
     let title: String
     let moviePictures: Picture?
+    let synopsisLong: String
     
     init(dto: ShowDTO) {
         eventId = dto.eventId
@@ -38,6 +39,7 @@ struct Show {
         } else {
             moviePictures = nil
         }
+        synopsisLong = dto.synopsisLong
     }
 }
 

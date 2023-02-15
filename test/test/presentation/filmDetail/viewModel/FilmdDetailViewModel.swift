@@ -28,7 +28,6 @@ final class FilmdDetailViewModel: ObservableObject, FilmdDetailViewModelProtocol
     // MARK: - Public
     func loadInfo() {
         state = .loading
-        
         useCase
             .execute(id: idFilm)
             .assign(to: &$state)

@@ -23,6 +23,9 @@ class FilmdDetailUseCase: IFilmdDetailUseCase {
     
     // MARK: init
     func execute(id: String) -> AnyPublisher<LoadableState<Show>, Never> {
-        return AnyPublisher(Just(.failed(RequestError.commonError))).eraseToAnyPublisher()
+        return repository.fetchShow(idShow: id).compactMap {
+            showDto in
+            Show(dto: showDto)
+        }.convertToLoadedState().eraseToAnyPublisher()
     }
 }

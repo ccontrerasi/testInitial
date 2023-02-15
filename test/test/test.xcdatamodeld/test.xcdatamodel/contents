@@ -4,6 +4,7 @@
         <attribute name="background" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
         <attribute name="poster" optional="YES" attributeType="String"/>
+        <relationship name="showDB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShowDB" inverseName="relationship" inverseEntity="ShowDB"/>
     </entity>
     <entity name="ShowDB" representedClassName="ShowDB" syncable="YES" codeGenerationType="class">
         <attribute name="actors" optional="YES" attributeType="Transformable" customClassName="[String]"/>
@@ -37,6 +38,6 @@
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="writers" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoviePicturesDB"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MoviePicturesDB" inverseName="showDB" inverseEntity="MoviePicturesDB"/>
     </entity>
 </model>

@@ -29,15 +29,58 @@ struct FilmdDetailViewController: View {
             switch viewModel.state {
                 case .idle, .loading: Text("Loading....")
                 case .failed(_): Text("Failed....")
-                case .result(_): Text("Failed....")
+                case .result(let result): mainView(show: result)
             }
+        }.onAppear {
+            viewModel.loadInfo()
         }
     }
     
-    private func mainView() -> some View {
-        ZStack {
-            
-        }
+    private func mainView(show: Show) -> some View {
+        VStack {
+            HStack {
+                GeometryReader { geometry in
+                    
+                    if let itemUrl = show.moviePictures?.pictureUrl, let url = URL(string: itemUrl) {
+                        AsyncImage(
+                            url: url,
+                            placeholder: { ProgressView() },
+                            image: { Image(uiImage: $0).resizable() }
+                        ).scaledToFit().padding()
+                            .ignoresSafeArea()
+                    } else {
+                        Image(imageResource: R.image.photo)
+                            .resizable()
+                            .scaledToFit().padding().ignoresSafeArea()
+                    }
+                }
+            }
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack {
+                            Text(show.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 16)
+                                .padding(.horizontal, 16)
+                            
+                            Text("\(show.year)")
+                                .lineLimit(1)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 8)
+                                .padding(.horizontal, 16)
+                                .frame(width: geometry.size.width)
+                            
+                            
+                            Text(show.synopsisLong)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.top, 8)
+                                    .padding(.horizontal, 16)
+                                    .frame(width: geometry.size.width)
+                            
+                        }
+                    }
+                }
+            }
     }
 }
 

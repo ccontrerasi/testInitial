@@ -11,6 +11,8 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol: ObservableObject {
+    func loadInfo()
+    func goToDetail(id: String)
 }
 
 final class HomeViewModel: ObservableObject, HomeViewModelProtocol, IHomeFlowStateProtocol {
@@ -24,11 +26,15 @@ final class HomeViewModel: ObservableObject, HomeViewModelProtocol, IHomeFlowSta
     }
     
     // MARK: - Public
-    func exampleInvocation() {
+    func loadInfo() {
         state = .loading
         useCase
             .execute()
             .delay(for: 1.5, scheduler: RunLoop.main)
             .assign(to: &$state)
+    }
+    
+    func goToDetail(id: String){
+        activeLink = .goToDetail(id: id)
     }
 }
